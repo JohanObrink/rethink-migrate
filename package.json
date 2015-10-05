@@ -12,6 +12,14 @@
   ],
   "author": "Johan Öbrink <johan.obrink@gmail.com>",
   "license": "MIT",
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/JohanObrink/rethink-migrate"
+  },
+  "bugs": {
+    "url" : "https://github.com/JohanObrink/rethink-migrate/issues",
+    "email" : "johan.obrink@gmail.com"
+  },
   "dependencies": {
     "fs-promise": "^0.3.1",
     "lodash": "^3.10.1",
