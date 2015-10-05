@@ -1,0 +1,7 @@
+{
+  "dev": {
+    "host": "localhost",
+    "port": 28015,
+    "db": "migrations"
+  }
+}

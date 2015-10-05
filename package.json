@@ -1,0 +1,26 @@
+{
+  "name": "rethink-migrate",
+  "version": "0.0.0",
+  "description": "A migration tool for rethink db",
+  "main": "lib/migrate",
+  "scripts": {
+    "test": "gulp test"
+  },
+  "keywords": [
+    "rethinkdb",
+    "migrations"
+  ],
+  "author": "Johan Öbrink <johan.obrink@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "fs-promise": "^0.3.1",
+    "lodash": "^3.10.1",
+    "meow": "^3.4.1",
+    "rethinkdb": "^2.1.1"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-jshint": "^1.11.2",
+    "jshint-stylish": "^2.0.1"
+  }
+}
