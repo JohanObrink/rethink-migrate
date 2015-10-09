@@ -35,15 +35,27 @@ switch(command) {
   case 'up':
   case 'down':
     var all = cli.flags.all;
-    migrate[command]({all: all, root: root});
-    break;
+    return migrate[command]({all: all, root: root})
+      .then(function () {
+        console.log('Migration successful');
+        process.exit(0);
+      })
+      .catch(function (error) {
+        console.error('Migration failed', error);
+        process.exit(1);
+      });
   case 'create':
     if(cli.input.length < 2) {
       return console.error('No migration name specified');
     }
-    create(cli.input[1], root);
+    return create(cli.input[1], root)
+      .then(function () {
+        console.log('Created migration', filepath);
+      })
+      .catch(function (err) {
+        console.error(err);
+      })
     break;
   default:
-    console.log('unknown command');
-    break;
+    return console.log('unknown command');
 }
