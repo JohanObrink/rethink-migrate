@@ -21,7 +21,7 @@ Create a ```database.json``` file in the root of your solution with the format:
 
 ## Create migration
 
-```rethink-migrate foo-bar```
+```rethink-migrate create foo-bar```
 
 ## Edit migration
 
