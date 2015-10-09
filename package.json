@@ -1,10 +1,12 @@
 {
   "name": "rethink-migrate",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "A migration tool for rethink db",
   "main": "lib/migrate",
   "scripts": {
-    "test": "gulp test"
+    "patch-release": "npm version patch && npm publish && git push --follow-tags",
+    "minor-release": "npm version patch && npm publish && git push --follow-tags",
+    "major-release": "npm version patch && npm publish && git push --follow-tags"
   },
   "keywords": [
     "rethinkdb",
@@ -21,11 +23,6 @@
     "email": "johan.obrink@gmail.com"
   },
   "bin": "./bin/rethink-migrate",
-  "scripts": {
-    "patch-release": "npm version patch && npm publish && git push --follow-tags",
-    "minor-release": "npm version patch && npm publish && git push --follow-tags",
-    "major-release": "npm version patch && npm publish && git push --follow-tags"
-  },
   "dependencies": {
     "lodash": "^3.10.1",
     "meow": "^3.4.1",
