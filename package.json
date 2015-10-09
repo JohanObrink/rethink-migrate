@@ -4,9 +4,9 @@
   "description": "A migration tool for rethink db",
   "main": "lib/migrate",
   "scripts": {
-    "patch-release": "npm version patch && npm publish && git push --follow-tags",
-    "minor-release": "npm version patch && npm publish && git push --follow-tags",
-    "major-release": "npm version patch && npm publish && git push --follow-tags"
+    "patch-release": "npm version patch && npm publish && git push origin master --follow-tags",
+    "minor-release": "npm version patch && npm publish && git push origin master --follow-tags",
+    "major-release": "npm version patch && npm publish && git push origin master --follow-tags"
   },
   "keywords": [
     "rethinkdb",
