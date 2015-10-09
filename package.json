@@ -28,9 +28,11 @@
     "meow": "^3.4.1",
     "moment": "^2.10.6",
     "promise": "^7.0.4",
-    "rethinkdb": "^2.1.1",
     "ts-fs-promise": "^1.0.4"
   },
+  "peerDependencies": {
+    "rethinkdb": "^2.1.1"
+    },
   "devDependencies": {
     "chai": "^3.3.0",
     "gulp": "^3.9.0",
