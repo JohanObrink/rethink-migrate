@@ -1,0 +1,46 @@
+#! /usr/bin/env node
+var meow = require('meow'),
+  path = require('path'),
+  migrate = require('./lib/migrate'),
+  create = require('./lib/create');
+ 
+var cli = meow([
+    'Run all up migrations:',
+    '  $ rethink-migrate up',
+    '',
+    'Run one down migration:',
+    '  $ rethink-migrate down',
+    '',
+    'Run all down migrations:',
+    '  $ rethink-migrate down -a',
+    '  $ rethink-migrate down --all',
+    '',
+    'Options:',
+    ' -r, --root  Specify file root',
+    '',
+    'Create a new migration script',
+    '  $ rethink-migrate create [migration name]'
+  ].join('\n'),
+  {
+    alias: {
+        a: 'all',
+        r: 'root'
+    }
+  });
+
+var command = cli.input[0];
+var root = cli.flags.root ? path.resolve(cli.flags.root) : process.cwd();
+
+switch(command) {
+  case 'up':
+  case 'down':
+    var all = cli.flags.all;
+    return migrate[command]({all: all, root: root});
+  case 'create':
+    if(cli.input.length < 2) {
+      return console.error('No migration name specified');
+    }
+    return create(cli.input[1], root);
+  default:
+    return console.log('unknown command');
+}

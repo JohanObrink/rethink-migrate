@@ -13,22 +13,36 @@
   "author": "Johan Öbrink <johan.obrink@gmail.com>",
   "license": "MIT",
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/JohanObrink/rethink-migrate"
+    "type": "git",
+    "url": "https://github.com/JohanObrink/rethink-migrate"
   },
   "bugs": {
-    "url" : "https://github.com/JohanObrink/rethink-migrate/issues",
-    "email" : "johan.obrink@gmail.com"
+    "url": "https://github.com/JohanObrink/rethink-migrate/issues",
+    "email": "johan.obrink@gmail.com"
+  },
+  "bin": "./lib/rethink-migrate",
+  "scripts": {
+    "patch-release": "npm version patch && npm publish && git push --follow-tags",
+    "minor-release": "npm version patch && npm publish && git push --follow-tags",
+    "major-release": "npm version patch && npm publish && git push --follow-tags"
   },
   "dependencies": {
-    "fs-promise": "^0.3.1",
     "lodash": "^3.10.1",
     "meow": "^3.4.1",
-    "rethinkdb": "^2.1.1"
+    "moment": "^2.10.6",
+    "promise": "^7.0.4",
+    "rethinkdb": "^2.1.1",
+    "ts-fs-promise": "^1.0.4"
   },
   "devDependencies": {
+    "chai": "^3.3.0",
     "gulp": "^3.9.0",
     "gulp-jshint": "^1.11.2",
-    "jshint-stylish": "^2.0.1"
+    "gulp-mocha": "^2.1.3",
+    "jshint-stylish": "^2.0.1",
+    "mocha": "^2.3.3",
+    "promise-mock": "^1.0.0",
+    "sinon": "^1.17.1",
+    "sinon-chai": "^2.8.0"
   }
 }
