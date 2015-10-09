@@ -21,11 +21,13 @@ Create a ```database.json``` file in the root of your solution with the format:
 
 ## Create migration
 
-```rethink-migrate create foo-bar```
+```rethink-migrate create [migration name]```
+
+For example: ```rethink-migrate create add-tables```
 
 ## Edit migration
 
-Open the file ```./migrations/[timestamp]-[migrationname].js```
+Open the file ```./migrations/[timestamp]-[migration name].js```
 
 Add the changes to be made. For example:
 
