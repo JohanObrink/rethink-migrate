@@ -20,7 +20,7 @@
     "url": "https://github.com/JohanObrink/rethink-migrate/issues",
     "email": "johan.obrink@gmail.com"
   },
-  "bin": "./lib/rethink-migrate",
+  "bin": "./bin/rethink-migrate",
   "scripts": {
     "patch-release": "npm version patch && npm publish && git push --follow-tags",
     "minor-release": "npm version patch && npm publish && git push --follow-tags",

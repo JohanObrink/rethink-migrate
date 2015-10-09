@@ -1,8 +1,8 @@
 #! /usr/bin/env node
 var meow = require('meow'),
   path = require('path'),
-  migrate = require('./lib/migrate'),
-  create = require('./lib/create');
+  migrate = require('../lib/migrate'),
+  create = require('../lib/create');
  
 var cli = meow([
     'Run all up migrations:',
