@@ -36,6 +36,9 @@ switch(command) {
   case 'down':
     var all = cli.flags.all;
     return migrate[command]({all: all, root: root})
+      .then(function (connection) {
+        return connection.close();
+      })
       .then(function () {
         console.log('Migration successful');
         process.exit(0);
