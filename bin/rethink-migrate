@@ -29,36 +29,39 @@ var cli = meow([
   });
 
 var command = cli.input[0];
-var root = cli.flags.root ? path.resolve(cli.flags.root) : process.cwd();
+var path = cli.flags.root ? path.resolve(cli.flags.root) : process.cwd();
 
-switch(command) {
-  case 'up':
-  case 'down':
-    var all = cli.flags.all;
-    return migrate[command]({all: all, root: root})
-      .then(function (connection) {
-        return connection.close();
-      })
-      .then(function () {
-        console.log('Migration successful');
-        process.exit(0);
-      })
-      .catch(function (error) {
-        console.error('Migration failed', error);
-        process.exit(1);
-      });
-  case 'create':
-    if(cli.input.length < 2) {
-      return console.error('No migration name specified');
-    }
-    return create(cli.input[1], root)
-      .then(function () {
-        console.log('Created migration', filepath);
-      })
-      .catch(function (err) {
-        console.error(err);
-      })
-    break;
-  default:
-    return console.log('unknown command');
+if(command === 'up' || command === 'down') {
+  var all = cli.flags.all;
+  migrate[command]({all: all, root: path})
+    .then(function (connection) {
+      return connection.close();
+    })
+    .then(function () {
+      console.log('Migration successful');
+      process.exit(0);
+    })
+    .catch(function (error) {
+      console.error('Migration failed', error);
+      process.exit(1);
+    });
+} else if(command === 'create') {
+  if(cli.input.length < 2) {
+    return console.error('No migration name specified');
+    process.exit(1);
+  }
+  create(cli.input[1], path)
+    .then(function (filepath) {
+      console.log('Created migration', filepath);
+      process.exit(0);
+    })
+    .catch(function (err) {
+      console.error(err);
+      process.exit(1);
+    });
+} else {
+  console.log('unknown command');
+  process.exit(1);
 }
+
+process.stdin.resume();
