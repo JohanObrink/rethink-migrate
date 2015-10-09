@@ -35,12 +35,15 @@ switch(command) {
   case 'up':
   case 'down':
     var all = cli.flags.all;
-    return migrate[command]({all: all, root: root});
+    migrate[command]({all: all, root: root});
+    break;
   case 'create':
     if(cli.input.length < 2) {
       return console.error('No migration name specified');
     }
-    return create(cli.input[1], root);
+    create(cli.input[1], root);
+    break;
   default:
-    return console.log('unknown command');
+    console.log('unknown command');
+    break;
 }
