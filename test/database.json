@@ -2,6 +2,6 @@
   "dev": {
     "host": "localhost",
     "port": 28015,
-    "db": "migrations"
+    "db": "_migrations_integration_tests"
   }
 }

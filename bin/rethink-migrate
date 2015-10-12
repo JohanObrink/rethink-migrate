@@ -33,18 +33,7 @@ var path = cli.flags.root ? path.resolve(cli.flags.root) : process.cwd();
 
 if(command === 'up' || command === 'down') {
   var all = cli.flags.all;
-  migrate[command]({all: all, root: path})
-    .then(function (connection) {
-      return connection.close();
-    })
-    .then(function () {
-      console.log('Migration successful');
-      process.exit(0);
-    })
-    .catch(function (error) {
-      console.error('Migration failed', error);
-      process.exit(1);
-    });
+  return migrate[command]({all: all, root: path});
 } else if(command === 'create') {
   if(cli.input.length < 2) {
     return console.error('No migration name specified');
