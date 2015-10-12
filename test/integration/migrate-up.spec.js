@@ -4,7 +4,7 @@ var chai = require('chai'),
   path = require('path'),
   r = require('rethinkdb'),
   migrate = require(process.cwd() + '/lib/migrate'),
-  configs = require('../database.json'),
+  config = require('../database.json'),
   _ = require('lodash');
 
 describe('rethink-migrate up', function () {
@@ -13,12 +13,14 @@ describe('rethink-migrate up', function () {
   var options, connection;
 
   before(function () {
-    return r.connect(configs.dev)
+    return r.connect(_.omit(config, ['db']))
       .then(function (_connection) {
         connection = _connection;
+        connection.use(config.db);
       });
   });
   beforeEach(function () {
+    delete process.env.db;
     sinon.stub(process, 'exit');
     options = {
       root: process.cwd() + '/test',
@@ -30,7 +32,7 @@ describe('rethink-migrate up', function () {
     process.exit.restore();
   });
   after(function () {
-    return r.dbDrop(configs.dev.db).run(connection);
+    return r.dbDrop(config.db).run(connection);
   });
 
   it('creates tables', function () {
@@ -41,6 +43,23 @@ describe('rethink-migrate up', function () {
           .then(function (tables) {
             var expected = ['_migrations', 'companies', 'employees'];
             expect(tables.join()).to.equal(expected.join());
+          });
+      });
+  });
+  it('uses ENV', function () {
+    var db = '_another_db';
+    process.env.db = db;
+    connection.use(db);
+
+    return migrate.up(options)
+      .then(function () {
+        return r.tableList().run(connection)
+          .then(function (cursor) { return cursor.toArray(); })
+          .then(function (tables) {
+            var expected = ['_migrations', 'companies', 'employees'];
+            expect(tables.join()).to.equal(expected.join());
+
+            return r.dbDrop(db).run(connection);
           });
       });
   });

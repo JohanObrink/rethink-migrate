@@ -1,7 +1,5 @@
 {
-  "dev": {
-    "host": "localhost",
-    "port": 28015,
-    "db": "_migrations_integration_tests"
-  }
+  "host": "localhost",
+  "port": 28015,
+  "db": "_migrations_integration_tests"
 }

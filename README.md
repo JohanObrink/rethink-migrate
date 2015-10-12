@@ -11,13 +11,13 @@ Create a ```database.json``` file in the root of your solution with the format:
 
 ```json
 {
-  "dev": {
-    "host": "localhost",
-    "port": 28015,
-    "db": "migrations"
-  }
+  "host": "localhost",
+  "port": 28015,
+  "db": "migrations"
 }
 ```
+
+You can also use environment variables or arguments to override.
 
 ## Create migration
 
