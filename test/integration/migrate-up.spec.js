@@ -17,6 +17,13 @@ describe('rethink-migrate up', function () {
       .then(function (_connection) {
         connection = _connection;
         connection.use(config.db);
+
+        return r.dbList().run(connection);
+      })
+      .then(function (dbs) {
+        if(dbs.indexOf(config.db) > -1) {
+          return r.dbDrop(config.db).run(connection);
+        }
       });
   });
   beforeEach(function () {
@@ -24,7 +31,8 @@ describe('rethink-migrate up', function () {
     sinon.stub(process, 'exit');
     options = {
       root: process.cwd() + '/test',
-      all: true
+      all: true,
+      logLevel: 'error'
     };
     return migrate.down(options);
   });

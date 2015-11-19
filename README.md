@@ -13,11 +13,16 @@ Create a ```database.json``` file in the root of your solution with the format:
 {
   "host": "localhost",
   "port": 28015,
-  "db": "migrations"
+  "db": "migrations",
+  "logLevel": "info"
 }
 ```
 
 You can also use environment variables or arguments to override.
+
+### Log levels
+
+The default is info. This will log info, warnings and errors. Possible values for logLevel are "debug" | "info" | "warning" | "error" | "none".
 
 ## Create migration
 
