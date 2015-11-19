@@ -32,9 +32,6 @@
     "promise": "^7.0.4",
     "ts-fs-promise": "^1.0.4"
   },
-  "peerDependencies": {
-    "rethinkdb": "^2.1.1"
-  },
   "devDependencies": {
     "chai": "^3.3.0",
     "gulp": "^3.9.0",
@@ -43,6 +40,8 @@
     "jshint-stylish": "^2.0.1",
     "mocha": "^2.3.3",
     "promise-mock": "^1.0.0",
+    "rethinkdb": "^2.2.0",
+    "rethinkdbdash": "^2.2.1",
     "sinon": "^1.17.1",
     "sinon-chai": "^2.8.0"
   }

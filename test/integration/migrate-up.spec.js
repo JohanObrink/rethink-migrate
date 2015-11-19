@@ -32,6 +32,7 @@ describe('rethink-migrate up', function () {
     options = {
       root: process.cwd() + '/test',
       all: true,
+      pool: false,
       logLevel: 'error'
     };
     return migrate.down(options);
@@ -47,7 +48,6 @@ describe('rethink-migrate up', function () {
     return migrate.up(options)
       .then(function () {
         return r.tableList().run(connection)
-          .then(function (cursor) { return cursor.toArray(); })
           .then(function (tables) {
             var expected = ['_migrations', 'companies', 'employees'];
             expect(tables.join()).to.equal(expected.join());
@@ -62,7 +62,6 @@ describe('rethink-migrate up', function () {
     return migrate.up(options)
       .then(function () {
         return r.tableList().run(connection)
-          .then(function (cursor) { return cursor.toArray(); })
           .then(function (tables) {
             var expected = ['_migrations', 'companies', 'employees'];
             expect(tables.join()).to.equal(expected.join());
@@ -85,7 +84,6 @@ describe('rethink-migrate up', function () {
           })
           .run(connection);
       })
-      .then(function (cursor) { return cursor.toArray(); })
       .then(function (companies) {
         console.log('companies', companies);
         var expected = [
