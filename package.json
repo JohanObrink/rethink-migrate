@@ -1,6 +1,6 @@
 {
   "name": "rethink-migrate",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A migration tool for rethink db",
   "main": "lib/migrate",
   "scripts": {
