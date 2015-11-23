@@ -7,6 +7,18 @@ A migration tool for rethink db
 
 ## Setup
 
+Install a rethinkdb driver:
+
+```bash
+npm install --save rethinkdb
+```
+
+or
+
+```bash
+npm install --save rethinkdbdash
+```
+
 Create a ```database.json``` file in the root of your solution with the format:
 
 ```json
@@ -37,13 +49,11 @@ Open the file ```./migrations/[timestamp]-[migration name].js```
 Add the changes to be made. For example:
 
 ```javascript
-var r = require('rethinkdb');
-
-exports.up = function (connection) {
+exports.up = function (r, connection) {
   return r.tableCreate('foo').run(connection);
 };
 
-exports.down = function (connection) {
+exports.down = function (r, connection) {
   return r.tableDrop('foo').run(connection);
 };
 ```

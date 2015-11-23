@@ -1,9 +1,7 @@
-var r = require('rethinkdb');
-
-exports.up = function (connection) {
+exports.up = function (r, connection) {
 
 };
 
-exports.down = function (connection) {
+exports.down = function (r, connection) {
   
 };

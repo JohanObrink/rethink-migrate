@@ -1,6 +1,4 @@
-var r = require('rethinkdb');
-
-exports.up = function (connection) {
+exports.up = function (r, connection) {
   return Promise.all([
     r.table('companies').insert([
       {id: 'acme', name: 'ACME'},
@@ -17,7 +15,7 @@ exports.up = function (connection) {
   ]);
 };
 
-exports.down = function (connection) {
+exports.down = function (r, connection) {
   return Promise.all([
     r.table('companies').delete().run(connection),
     r.table('employees').delete().run(connection)

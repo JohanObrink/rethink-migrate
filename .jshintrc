@@ -10,7 +10,7 @@
   "eqnull": true,
   "node": true,
   "expr": true,
-  "maxcomplexity": 4,
+  "maxcomplexity": 6,
   "esnext": true,
   "globals": {
     "describe": true,
