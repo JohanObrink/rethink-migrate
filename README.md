@@ -1,6 +1,14 @@
 # rethink-migrate
 A migration tool for rethink db
 
+## Version 1.0
+
+Breaking change: In order to support rethinkdbdash, the format of the migrations has
+been changed from
+```exports.up = function (connection) {``` and ```exports.down = function (connection) {```
+to
+```exports.up = function (r, connection) {``` and ```exports.down = function (r, connection) {```
+
 ## Install
 
 ```npm install -g rethink-migrate```
