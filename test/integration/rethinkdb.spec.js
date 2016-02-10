@@ -26,7 +26,7 @@ describe('rethinkdb', function () {
         root: process.cwd() + '/test',
         all: true,
         pool: false,
-        logLevel: 'error'
+        logLevel: 'debug'
       };
       helper.reset();
     });
