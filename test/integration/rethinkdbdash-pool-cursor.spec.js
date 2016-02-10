@@ -5,7 +5,7 @@ var chai = require('chai'),
   config = require('../database.json'),
   _ = require('lodash');
 
-var r = migrate.r({driver: 'rethinkdbdash', pool: false, cursor: false}),
+var r = migrate.r({driver: 'rethinkdbdash', pool: true, cursor: true}),
   toArray = migrate.toArray,
   helper = require('./helper')(r, toArray);
 
