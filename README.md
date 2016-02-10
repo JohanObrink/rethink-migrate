@@ -1,7 +1,7 @@
 # rethink-migrate
 A migration tool for rethink db
 
-## Version 1.1
+## Version 1.2
 
 Breaking change: In order to support rethinkdbdash, the format of the migrations has
 been changed from
@@ -39,6 +39,8 @@ Create a ```database.json``` file in the root of your solution with the format:
   "logLevel": "info"
 }
 ```
+
+Other, optional, parameters are ```authKey``` and ```ssl```.
 
 You can also use environment variables or arguments to override.
 
