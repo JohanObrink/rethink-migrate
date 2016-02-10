@@ -1,7 +1,7 @@
 # rethink-migrate
 A migration tool for rethink db
 
-## Version 1.0
+## Version 1.1
 
 Breaking change: In order to support rethinkdbdash, the format of the migrations has
 been changed from
@@ -34,6 +34,8 @@ Create a ```database.json``` file in the root of your solution with the format:
   "host": "localhost",
   "port": 28015,
   "db": "migrations",
+  "discovery": true,
+  "timeout": 60,
   "logLevel": "info"
 }
 ```
