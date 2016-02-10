@@ -35,8 +35,7 @@ Create a ```database.json``` file in the root of your solution with the format:
   "port": 28015,
   "db": "migrations",
   "discovery": true,
-  "timeout": 60,
-  "logLevel": "info"
+  "timeout": 60
 }
 ```
 
@@ -76,6 +75,17 @@ exports.down = function (r, connection) {
 ```rethink migrate down``` will run one down migration.
 
 ```rethink migrate down --all``` will run all outstanding down migrations.
+
+### Options
+
+```rethink migrate up --root ./build``` will run all outstanding up migrations
+  found in ./build/migrations with database.json in ./build.
+```-r```can be used
+  as an alias.
+
+```rethink migrate up --logLevel debug``` will set logLevel to debug.
+  Possible values are: debug | info | warning | error | none.
+```-l```can be used as an alias.
 
 ##License
 

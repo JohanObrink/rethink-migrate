@@ -16,7 +16,8 @@ var cli = meow([
     '  $ rethink-migrate down --all',
     '',
     'Options:',
-    ' -r, --root  Specify file root',
+    ' -l, --logLevel  debug | info | warning | error | none',
+    ' -r, --root      Specify file root',
     '',
     'Create a new migration script',
     '  $ rethink-migrate create [migration name]'
