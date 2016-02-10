@@ -1,5 +1,7 @@
 {
   "host": "localhost",
   "port": 28015,
-  "db": "_migrations_integration_tests"
+  "db": "_migrations_integration_tests",
+  "discovery": true,
+  "timeout": 60
 }
