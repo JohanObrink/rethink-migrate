@@ -1,13 +1,12 @@
 # rethink-migrate
 A migration tool for rethink db
 
-## Version 1.2
+## Changes
 
-Breaking change: In order to support rethinkdbdash, the format of the migrations has
-been changed from
-```exports.up = function (connection) {``` and ```exports.down = function (connection) {```
-to
-```exports.up = function (r, connection) {``` and ```exports.down = function (r, connection) {```
+- v1.3.0: fixed an exception if there are no migrations to revert on migrate down
+- v1.2.2: changed signature for the migrations to support the rethinkdbdash driver
+
+
 
 ## Install
 
@@ -27,21 +26,28 @@ or
 npm install --save rethinkdbdash
 ```
 
+## Configuration
+
+### File
 Create a ```database.json``` file in the root of your solution with the format:
 
 ```json
 {
   "host": "localhost",
   "port": 28015,
-  "db": "migrations",
-  "discovery": true,
+  "db": "foo",
   "timeout": 60
+  "authKey": "bar" (optional)
 }
 ```
+### Environment Variables
+(uses the dotenv module)
 
-Other, optional, parameters are ```authKey``` and ```ssl```.
-
-You can also use environment variables or arguments to override.
+RETHINK_HOST=localhost
+RETHINK_PORT=28015
+RETHINK_DB=foo
+RETHINK_TIMEOUT=60
+RETHINK_AUTHKEY=bar
 
 ### Log levels
 
