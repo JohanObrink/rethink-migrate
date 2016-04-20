@@ -3,10 +3,9 @@ A migration tool for rethink db
 
 ## Changes
 
+- v2.0.0: major rev to how config works.  multiple breaking changes see updated README
 - v1.3.0: fixed an exception if there are no migrations to revert on migrate down
 - v1.2.2: changed signature for the migrations to support the rethinkdbdash driver
-
-
 
 ## Install
 
@@ -36,12 +35,12 @@ Create a ```database.json``` file in the root of your solution with the format:
   "host": "localhost",
   "port": 28015,
   "db": "foo",
-  "timeout": 60
-  "authKey": "bar" (optional)
+  "timeout": 60,
+  "authKey": "bar"
 }
 ```
 ### Environment Variables
-(uses the dotenv module)
+(uses the dotenv module to pull in a .env if its there)
 
 RETHINK_HOST=localhost
 RETHINK_PORT=28015
