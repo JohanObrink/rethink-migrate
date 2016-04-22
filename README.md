@@ -87,7 +87,15 @@ exports.down = function (r, connection) {
   Possible values are: debug | info | warning | error | none.
 ```-l```can be used as an alias.
 
-##License
+## Run tests
+
+Run ```docker-compose up```
+If necessary, change the IP address in ```test/database.json```
+Run ```gulp jshint test```
+
+To run tests continually, add ```watch``` to the gulp command
+
+# License
 
 The MIT License (MIT)
 
