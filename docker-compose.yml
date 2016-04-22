@@ -1,0 +1,37 @@
+rethinkdb:
+  image: 'rethinkdb:2.3.0'
+  command: 'rethinkdb --server-tag primary --server-name rethinkdb --bind all'
+  ports:
+    - '8080:8080'
+    - '28015:28015'
+  restart: always
+  volumes:
+    - '/data/rethinkdb:/data/rethinkdb_data'
+
+rethinkdb-failover_1:
+  image: 'rethinkdb:2.3.0'
+  command: 'rethinkdb --server-tag secondary --server-name rethinkdb_failover_1 --bind all --join rethinkdb'
+  restart: always
+  links:
+    - rethinkdb
+
+rethinkdb-failover_2:
+  image: 'rethinkdb:2.3.0'
+  command: 'rethinkdb --server-tag secondary --server-name rethinkdb_failover_2 --bind all --join rethinkdb'
+  restart: always
+  links:
+    - rethinkdb
+
+rethinkdb-failover_3:
+  image: 'rethinkdb:2.3.0'
+  command: 'rethinkdb --server-tag secondary --server-name rethinkdb_failover_3 --bind all --join rethinkdb'
+  restart: always
+  links:
+    - rethinkdb
+
+rethinkdb-failover_4:
+  image: 'rethinkdb:2.3.0'
+  command: 'rethinkdb --server-tag secondary --server-name rethinkdb_failover_4 --bind all --join rethinkdb'
+  restart: always
+  links:
+    - rethinkdb

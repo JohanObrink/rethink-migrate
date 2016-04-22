@@ -1,5 +1,5 @@
 {
-  "host": "localhost",
+  "host": "192.168.99.100",
   "port": 28015,
   "db": "_migrations_integration_tests",
   "discovery": true,
