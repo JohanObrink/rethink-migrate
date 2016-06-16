@@ -1,5 +1,5 @@
 {
-  "name": "rethink-migrate",
+  "name": "@socialtables/rethink-migrate",
   "version": "2.1.0",
   "description": "A migration tool for rethink db",
   "main": "lib/migrate",
