@@ -70,13 +70,15 @@ exports.down = function (r, connection) {
 ```
 ## Run migrations
 
-```rethink migrate up``` will run one up migration.
+```rethink migrate up --one``` will run one up migration.
 
 ```rethink migrate up --all``` will run all outstanding up migrations.
 
-```rethink migrate down``` will run one down migration.
+```rethink migrate down --one``` will run one down migration.
 
 ```rethink migrate down --all``` will run all outstanding down migrations.
+
+If either `--all` or `--one` isn't specified, `--all` is the default.
 
 ### Options
 
