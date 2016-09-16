@@ -27,7 +27,18 @@ or
 npm install --save rethinkdbdash
 ```
 
-Create a ```database.json``` file in the root of your solution with the format:
+Create a ```rethink-migrate-file.js``` with the format:
+```javascript
+module.exports = {
+  "host": "localhost",
+  "port": 28015,
+  "db": "migrations",
+  "discovery": true,
+  "timeout": 60
+}
+```
+
+Or if you prefere, you can create a ```database.json``` file in the root of your solution with the format:
 
 ```json
 {
@@ -42,6 +53,12 @@ Create a ```database.json``` file in the root of your solution with the format:
 Other, optional, parameters are ```authKey``` and ```ssl```.
 
 You can also use environment variables or arguments to override.
+
+The configuration precedence is:
+ - arguments
+ - environment variables
+ - database.json
+ - rethink-migrate-file.js
 
 ### Log levels
 
