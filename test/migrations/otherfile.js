@@ -1,1 +1,1 @@
-This file should not be run in migrations
+// This file should not be run in migrations
