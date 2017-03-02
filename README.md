@@ -9,21 +9,21 @@ A migration tool for rethink db
 
 ## Install
 
-```npm install -g rethink-migrate```
+`npm install -g rethink-migrate`
 
 ## Setup
 
 Install a rethinkdb driver:
 
-```bash
+`
 npm install --save rethinkdb
-```
+`
 
 or
 
-```bash
+`
 npm install --save rethinkdbdash
-```
+`
 
 ## Configuration
 
@@ -42,11 +42,11 @@ Create a ```database.json``` file in the root of your solution with the format:
 ### Environment Variables
 (uses the dotenv module to pull in a .env if its there)
 
-RETHINK_HOST=localhost
-RETHINK_PORT=28015
-RETHINK_DB=foo
-RETHINK_TIMEOUT=60
-RETHINK_AUTHKEY=bar
+RETHINK_HOST=localhost <br/>
+RETHINK_PORT=28015 <br/>
+RETHINK_DB=foo <br/>
+RETHINK_TIMEOUT=60 <br/>
+RETHINK_AUTHKEY=bar <br/>
 
 ### Log levels
 
