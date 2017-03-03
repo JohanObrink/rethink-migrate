@@ -9,7 +9,7 @@ or backward migrate structural or data changes. Share
 and control these changes with other developers.
 
 This code is a fork of Johan Obrink's
-[migrate-rethinkdb](https://github.com/JohanObrink/migrate-rethinkdb).
+[rethink-migrate](https://github.com/JohanObrink/rethink-migrate).
 `migrate-rethinkdb` is more actively maintained.
 
 
@@ -21,7 +21,7 @@ $ npm install -g migrate-rethinkdb
 
 ## Setup
 
-Install a rethinkdb driver:
+Install a RethinkDB driver:
 
 ```bash
 npm install --save rethinkdb
