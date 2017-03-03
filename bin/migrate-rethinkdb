@@ -6,21 +6,21 @@ var meow = require('meow'),
 
 var cli = meow([
     'Run all up migrations:',
-    '  $ rethink-migrate up',
+    '  $ migrate-rethinkdb up',
     '',
     'Run one down migration:',
-    '  $ rethink-migrate down',
+    '  $ migrate-rethinkdb down',
     '',
     'Run all down migrations:',
-    '  $ rethink-migrate down -a',
-    '  $ rethink-migrate down --all',
+    '  $ migrate-rethinkdb down -a',
+    '  $ migrate-rethinkdb down --all',
     '',
     'Options:',
     ' -l, --logLevel  debug | info | warning | error | none',
     ' -r, --root      Specify file root',
     '',
     'Create a new migration script',
-    '  $ rethink-migrate create [migration name]'
+    '  $ migrate-rethinkdb create [migration name]'
   ].join('\n'),
   {
     alias: {

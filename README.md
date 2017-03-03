@@ -1,17 +1,23 @@
-# rethink-migrate
-A migration tool for rethink db
+# migrate-rethinkdb
+A migration tool for RethinkDB
 
-## Version 1.2
+## Overview
 
-Breaking change: In order to support rethinkdbdash, the format of the migrations has
-been changed from
-```exports.up = function (connection) {``` and ```exports.down = function (connection) {```
-to
-```exports.up = function (r, connection) {``` and ```exports.down = function (r, connection) {```
+`migrate-rethinkdb` is a utility allowing you to version
+changes to a [RethinkDB](http://rethinkdb.com) database. Forward
+or backward migrate structural or data changes. Share
+and control these changes with other developers.
+
+This code is a fork of Johan Obrink's
+[migrate-rethinkdb](https://github.com/JohanObrink/migrate-rethinkdb).
+`migrate-rethinkdb` is more actively maintained.
+
 
 ## Install
 
-```npm install -g rethink-migrate```
+```bash
+$ npm install -g migrate-rethinkdb
+```
 
 ## Setup
 
@@ -39,23 +45,30 @@ Create a ```database.json``` file in the root of your solution with the format:
 }
 ```
 
-Other, optional, parameters are ```authKey``` and ```ssl```.
+Other, optional, parameters are `authKey` and `ssl`.
 
 You can also use environment variables or arguments to override.
 
 ### Log levels
 
-The default is info. This will log info, warnings and errors. Possible values for logLevel are "debug" | "info" | "warning" | "error" | "none".
+The default is info. This will log info, warnings and errors. Possible
+values for logLevel are "debug" | "info" | "warning" | "error" | "none".
 
 ## Create migration
 
-```rethink-migrate create [migration name]```
+```bash
+$ migrate-rethinkdb create [migration name]
+```
 
-For example: ```rethink-migrate create add-tables```
+For example:
+
+```bash
+migrate-rethinkdb create add-tables
+```
 
 ## Edit migration
 
-Open the file ```./migrations/[timestamp]-[migration name].js```
+Open the file `./migrations/[timestamp]-[migration name].js`
 
 Add the changes to be made. For example:
 
@@ -68,37 +81,38 @@ exports.down = function (r, connection) {
   return r.tableDrop('foo').run(connection);
 };
 ```
+
 ## Run migrations
 
-```rethink migrate up``` will run all outstanding up migrations.
+`migrate-rethinkdb up` will run all outstanding up migrations.
 
-```rethink migrate down``` will run one down migration.
+`migrate-rethinkdb down` will run one down migration.
 
-```rethink migrate down --all``` will run all outstanding down migrations.
+`migrate-rethinkdb down --all` will run all outstanding down migrations.
 
 ### Options
 
-```rethink migrate up --root ./build``` will run all outstanding up migrations
-  found in ./build/migrations with database.json in ./build.
-```-r```can be used
-  as an alias.
+`migrate-rethinkdb up --root ./build` will run all outstanding up migrations
+  found in `./build/migrations` with `database.json` in `./build`.
+`-r` can be used as an alias.
 
-```rethink migrate up --logLevel debug``` will set logLevel to debug.
+`migrate-rethinkdb up --logLevel debug` will set logLevel to debug.
   Possible values are: debug | info | warning | error | none.
-```-l```can be used as an alias.
+`-l` can be used as an alias.
 
 ## Run tests
 
-Run ```docker-compose up```
-If necessary, change the IP address in ```test/database.json```
-Run ```gulp jshint test```
+Run `docker-compose up`
+If necessary, change the IP address in `test/database.json`
+Run `gulp jshint test`
 
-To run tests continually, add ```watch``` to the gulp command
+To run tests continually, add `watch` to the gulp command
 
 # License
 
 The MIT License (MIT)
 
+Copyright (c) 2017 [Parabol, Inc.](https://parabol.co)
 Copyright (c) 2015 Johan Öbrink
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
