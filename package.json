@@ -1,7 +1,7 @@
 {
-  "name": "rethink-migrate",
-  "version": "1.3.1",
-  "description": "A migration tool for rethink db",
+  "name": "migrate-rethinkdb",
+  "version": "1.4.0",
+  "description": "A migration tool for RethinkDB",
   "main": "lib/migrate",
   "scripts": {
     "patch-release": "npm version patch && npm publish && git push origin master --follow-tags",
@@ -12,17 +12,17 @@
     "rethinkdb",
     "migrations"
   ],
-  "author": "Johan Öbrink <johan.obrink@gmail.com>",
+  "author": "Parabol Inc <love@parabol.co>",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/JohanObrink/rethink-migrate"
+    "url": "https://github.com/ParabolInc/migrate-rethinkdb"
   },
   "bugs": {
-    "url": "https://github.com/JohanObrink/rethink-migrate/issues",
-    "email": "johan.obrink@gmail.com"
+    "url": "https://github.com/ParabolInc/migrate-rethinkdb/issues",
+    "email": "love@parabol.co"
   },
-  "bin": "./bin/rethink-migrate",
+  "bin": "./bin/migrate-rethinkdb",
   "dependencies": {
     "chalk": "^1.1.3",
     "lodash": "^3.10.1",

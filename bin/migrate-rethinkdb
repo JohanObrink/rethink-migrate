@@ -6,26 +6,31 @@ var meow = require('meow'),
 
 var cli = meow([
     'Run all up migrations:',
-    '  $ rethink-migrate up',
-    '',
-    'Run one down migration:',
-    '  $ rethink-migrate down',
+    '  $ migrate-rethinkdb up',
     '',
     'Run all down migrations:',
-    '  $ rethink-migrate down -a',
-    '  $ rethink-migrate down --all',
+    '  $ migrate-rethinkdb down',
+    '',
+    'Run one up migration:',
+    '  $ migrate-rethinkdb up --one',
+    '',
+    'Run one down migration:',
+    '  $ migrate-rethinkdb down --one',
     '',
     'Options:',
+    ' -a, --all       run up/down ALL migrations',
     ' -l, --logLevel  debug | info | warning | error | none',
+    ' -o, --one       run up/down ONE migrations',
     ' -r, --root      Specify file root',
     '',
     'Create a new migration script',
-    '  $ rethink-migrate create [migration name]'
+    '  $ migrate-rethinkdb create [migration name]'
   ].join('\n'),
   {
     alias: {
         a: 'all',
         l: 'logLevel',
+        o: 'one',
         r: 'root'
     }
   });
@@ -34,9 +39,15 @@ var command = cli.input[0];
 var path = cli.flags.root ? path.resolve(cli.flags.root) : process.cwd();
 
 if(command === 'up' || command === 'down') {
-  var all = cli.flags.all;
+  var all = cli.flags.all || false;
+  var one = cli.flags.one || false;
+  if (all && one) {
+    console.error('Only one of --all or --one options may be specified');
+    process.exit(1);
+  }
+  var all = !one;
   var logLevel = cli.flags.logLevel || 'info';
-  return migrate[command]({all: all, logLevel: logLevel, root: path})
+  migrate[command]({all: all, logLevel: logLevel, root: path})
     .then(function (result) {
       process.exit(0);
     })
@@ -45,7 +56,7 @@ if(command === 'up' || command === 'down') {
     });
 } else if(command === 'create') {
   if(cli.input.length < 2) {
-    return console.error('No migration name specified');
+    console.error('No migration name specified');
     process.exit(1);
   }
   create(cli.input[1], path)
