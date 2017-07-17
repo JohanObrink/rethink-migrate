@@ -89,11 +89,15 @@ exports.down = function (r, connection) {
 
 ## Run tests
 
-Run ```docker-compose up```
-If necessary, change the IP address in ```test/database.json```
-Run ```gulp jshint test```
+In order to run the tests, you must have a rethinkdb instance running. You can
+either start it locally in you machine or use the `docker-compose up` command to
+start a dockerized version of rethinkdb. In any case, you must set the IP of
+your running rethinkdb instance as the `host` address in the file
+`test/database.json` before running tests
 
-To run tests continually, add ```watch``` to the gulp command
+Use `npm test` to actually run the test suite.
+
+To run tests continually, use `gulp test watch`
 
 # License
 
