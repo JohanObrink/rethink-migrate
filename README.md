@@ -70,11 +70,11 @@ exports.down = function (r, connection) {
 ```
 ## Run migrations
 
-```rethink migrate up``` will run all outstanding up migrations.
+```rethink-migrate up``` will run all outstanding up migrations.
 
-```rethink migrate down``` will run one down migration.
+```rethink-migrate down``` will run one down migration.
 
-```rethink migrate down --all``` will run all outstanding down migrations.
+```rethink-migrate down --all``` will run all outstanding down migrations.
 
 ### Options
 
