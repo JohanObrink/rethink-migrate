@@ -29,7 +29,7 @@
     "meow": "^3.7.0",
     "moment": "^2.13.0",
     "nconf": "^0.8.4",
-    "promise": "^7.1.1",
+    "promise": "^7.1.1"
   },
   "devDependencies": {
     "chai": "^3.5.0",
