@@ -26,7 +26,7 @@
   "bin": "./bin/rethink-migrate",
   "dependencies": {
     "chalk": "^1.1.3",
-    "lodash": "^3.10.1",
+    "lodash": "^4.17.19",
     "meow": "^3.7.0",
     "moment": "^2.13.0",
     "nconf": "^0.8.4",
